@@ -1,0 +1,1 @@
+CLI tool that decodes event logs produced by ```cryo``` into readable values that can be used in testing. Also can help in adding timestamps. 
