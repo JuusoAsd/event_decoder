@@ -295,7 +295,7 @@ async fn fetch_page(query: Value) -> Result<Value, reqwest::Error> {
 use futures::stream::{self, StreamExt};
 use std::sync::{Arc, Mutex};
 
-async fn get_block_timestamps(start_block: u64, end_block: u64, interval: u64) -> Timestamps {
+async fn get_block_timestamps(start_block: u64, end_block: u64, _: u64) -> Timestamps {
     let timestamps = Arc::new(Mutex::new(BTreeMap::new()));
     let mut skip_count = 0;
     let mut start_block_arg = start_block;
@@ -466,6 +466,6 @@ mod tests {
     async fn test_get_timestamps() {
         let start_block: u64 = 17004000;
         let end_block: u64 = 18005038;
-        let timestamps = get_block_timestamps(start_block, end_block, 1).await;
+        let _ = get_block_timestamps(start_block, end_block, 1).await;
     }
 }
